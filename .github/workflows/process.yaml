@@ -1,8 +1,7 @@
 name: Process
 on:
   schedule:
-    - cron: "05 03 * * *"
-    - cron: "05 11 * * *"
+    - cron: "5 */6 * * *"
   workflow_dispatch:
 
 env:
@@ -14,6 +13,9 @@ env:
 
   # token
   PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}
+
+  # github api token for code search crawl (same PAT as PUSH_TOKEN)
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
   # not check connective
   SKIP_ALIVE_CHECK: ${{ vars.SKIP_ALIVE_CHECK }}
